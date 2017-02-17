@@ -11,8 +11,7 @@ using namespace std;
 /**Checks and returns true if there are no conflicts. If there is a conflict, returns false*/
 bool ok(int q[], int c){
     for (int i = 0; i < c; ++i)
-        // If there is a Queen in the same column, or in the upper/lower-left diagonal return false
-        if (q[i] == q[c] || abs(q[i] - q[c]) == c - i)
+        if (q[i] == q[c] || abs(q[i] - q[c]) == c - i) // If there is a Queen in the same column, or in the upper/lower-left diagonal return false
             return false;
     return true;
 }
@@ -25,7 +24,6 @@ void print(int q[]){
     // Box is a data type: a 5x7 2D array of characters
     typedef char box[5][7];
 
-    // Board will be reinitialized every time the print function is called so there is no need to clean it up after
     // bb and wb are boxes (5x7 arrays). Board is an 8x8 array of pointers to boxes
     box bb, wb, *board[8][8];
 
@@ -36,7 +34,7 @@ void print(int q[]){
             wb[i][j] = char(219);
         }
 
-    // Creates 2 more boxes to represent the queens, by drawing a picture of each queen (white and black) in the 2D array
+    // Creates 2 more boxes to represent the queens by drawing a picture of each queen (white and black) in the 2D array
     static box bq = {{char(219), char(219), char(219), char(219), char(219), char(219), char(219)},
                      {char(219), ' ',       char(219), ' ',       char(219), ' ',       char(219)},
                      {char(219), ' ',       ' ',       ' ',       ' ',       ' ',       char(219)},
@@ -91,7 +89,7 @@ void print(int q[]){
     cout << "\n\n";
 }
 
-/**If you have found a correct board positioning that satisfies the n queens parameters then print it, otherwise keep looping*/
+/**Prints the correct solutions once you hit column eight and recursively calls itself to traverse through the columns*/
 void next(int q[], int c){
     if (c == 8)                           // If columns is equal to 8 then you have found a solution and should print it
         print(q);
