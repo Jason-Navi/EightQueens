@@ -1,11 +1,11 @@
-#include <iostream>
-#include <cmath>
 /**
 * Jason Navi
 * 3/10/16
 * Program prints all 92 solutions to the eight queens problem (8x8 board)
 * Solutions are printed out on a visual board
 */
+#include <iostream>
+#include <cmath>
 using namespace std;
 
 /**Checks and returns true if there are no conflicts. If there is a conflict, returns false*/
