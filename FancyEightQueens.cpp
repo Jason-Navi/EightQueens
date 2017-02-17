@@ -89,7 +89,7 @@ void print(int q[]){
     cout << "\n\n";
 }
 
-/**Prints the correct solutions once you hit column eight and recursively calls itself to traverse through the columns*/
+/**Prints the correct solution once you hit column eight otherwise it keeps looking for a solution*/
 void next(int q[], int c){
     if (c == 8)                           // If columns is equal to 8 then you have found a solution and should print it
         print(q);
